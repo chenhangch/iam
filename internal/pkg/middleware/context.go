@@ -7,6 +7,7 @@ import (
 
 const UsernameKey = "username"
 
+// Context 上下文
 func Context() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Set(log.KeyRequestID, c.GetString(XRequestIDKey))
