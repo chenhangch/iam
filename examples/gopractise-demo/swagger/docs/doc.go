@@ -1,4 +1,4 @@
-// Package docs awesome.
+// Package 面试题 awesome.
 //
 // Documentation of our awesome API.
 //

@@ -65,8 +65,8 @@ type JwtInfo struct {
 	MaxRefresh time.Duration
 }
 
-// NewConfig 返回一个带着默认值的 Config 的实例
-func NewConfig() *Config {
+// NewNilConfig 返回一个带着默认值的 Config 的实例
+func NewNilConfig() *Config {
 	return &Config{
 		SecureServing:   nil,
 		InsecureServing: nil,

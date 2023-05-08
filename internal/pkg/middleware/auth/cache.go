@@ -23,6 +23,7 @@ type Secret struct {
 	Expires  int64
 }
 
+// CacheStrategy Bearer 认证需要密钥
 type CacheStrategy struct {
 	get func(kid string) (Secret, error)
 }

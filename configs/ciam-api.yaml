@@ -5,6 +5,20 @@ server:
   middleware: logger
   max-ping-count: 3
 
+# HTTP 配置
+insecure:
+  bind-address: 127.0.0.1
+  bind-port: 8080
+# HTTPS 配置
+secure:
+  bind-address: 0.0.0.0
+  bind-port: 8443
+  tls:
+    cert-key:
+      cert-file: #包含 x509 证书的文件路径，用 HTTPS 认证
+      private-key-file: # TLS私钥
+
+
 # MySQL 数据库相关配置
 mysql:
   host: localhost:3306 # MySQL 机器 ip 和端口，默认 127.0.0.1:3306
@@ -15,3 +29,10 @@ mysql:
   max-open-connections: 100 # MySQL 最大打开的连接数，默认 100
   max-connection-life-time: 10s # 空闲连接最大存活时间，默认 10s
   log-level: 4 # GORM log level, 1: silent, 2:error, 3:warn, 4:info
+
+# JWT 配置
+jwt:
+  realm: JWT # jwt 标识
+  key: dfVpOK8LZeJLZHYmHdb1VdyRrACKpqoo # 服务端密钥
+  timeout: 24h # token 过期时间(小时)
+  max-refresh: 24h # token 更新时间(小时)
