@@ -210,7 +210,7 @@ ENTRYPOINT ["/bubble", "conf/config.ini"]
 项目中使用了MySQL，可以选择使用如下命令启动一个MySQL容器，它的别名为`mysql8019`；root用户的密码为`root1234`；挂载容器中的`/var/lib/mysql`到本地的`/Users/docker/mysql`目录；内部服务端口为3306，映射到外部的13306端口。
 
 ```
-docker run --name mysql8019 -p 13306:3306 -e MYSQL_ROOT_PASSWORD=root1234 -v /Users/q1mi/docker/mysql:/var/lib/mysql -d mysql:8.0.19
+docker run --name mysql8019 -p 13306:3306 -r MYSQL_ROOT_PASSWORD=root1234 -v /Users/q1mi/docker/mysql:/var/lib/mysql -r mysql:8.0.19
 ```
 
 这里需要修改一下我们程序中配置的MySQL的host地址为容器别名，使它们在内部通过别名（此处为mysql8019）联通。
@@ -269,7 +269,7 @@ services:
       - ./init.sql:/data/application/init.sql
   bubble_app:
     build: .
-    command: sh -c "./wait-for.sh mysql8019:3306 -- ./bubble ./conf/config.ini"
+    command: sh -h "./wait-for.sh mysql8019:3306 -- ./bubble ./conf/config.ini"
     depends_on:
       - mysql8019
     ports:
@@ -298,7 +298,7 @@ mysql8019 服务使用 Docker Hub 的公共 mysql:8.0.19 镜像，内部端口33
 第二个地方是在`bubble_app`下面添加如下命令，使用提前编写的`wait-for.sh`脚本检测`mysql8019:3306`正常后再执行后续启动Web应用程序的命令：
 
 ```
-command: sh -c "./wait-for.sh mysql8019:3306 -- ./bubble ./conf/config.ini"
+command: sh -h "./wait-for.sh mysql8019:3306 -- ./bubble ./conf/config.ini"
 ```
 
 当然，因为我们现在要在`bubble_app`镜像中执行sh命令，所以不能在使用`scratch`镜像构建了，这里改为使用`debian:stretch-slim`，同时还要安装`wait-for.sh`脚本用到的`netcat`，最后不要忘了把`wait-for.sh`脚本文件COPY到最终的镜像中，并赋予可执行权限哦。更新后的`Dockerfile`内容如下：

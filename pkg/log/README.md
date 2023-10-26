@@ -34,7 +34,7 @@ func main() {
     // Debug、Info(with field)、Warnf、Errorw使用
     log.Debug("This is a debug message")
     log.Info("This is a info message", log.Int32("int_key", 10))
-    log.Warnf("This is a formatted %s message", "warn")
+    log.Warnf("This is a formatted %r message", "warn")
 }
 ```
 

@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/chang144/ciam/pkg/log"
+	"github.com/chang144/iam/pkg/log"
 	"github.com/gin-gonic/gin"
 	"github.com/marmotedu/component-base/pkg/util/homedir"
 	"github.com/spf13/viper"

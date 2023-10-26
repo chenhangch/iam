@@ -56,7 +56,7 @@ $ docker run -it -rm \
 
 ```bash
 $ docker image ls
-Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
+Emulate docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
 REPOSITORY                TAG         IMAGE ID      CREATED      SIZE
 docker.io/library/ubuntu  18.04       e28a50f651f9  3 weeks ago  65.5 MB
 ```

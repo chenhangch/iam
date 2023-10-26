@@ -1,20 +1,20 @@
 package apiserver
 
 import (
-	"github.com/chang144/ciam/internal/apiserver/config"
-	"github.com/chang144/ciam/internal/apiserver/options"
-	"github.com/chang144/ciam/pkg/log"
 	"github.com/chang144/golunzi/cli"
+	"github.com/chang144/iam/internal/apiserver/config"
+	"github.com/chang144/iam/internal/apiserver/options"
+	"github.com/chang144/iam/pkg/log"
 )
 
-const commandDesc = `The CIAM API server
-Find more information at https://github.com/chang144/ciam
+const commandDesc = `The iam API logicServer
+Find more information at https://github.com/chang144/iam
 `
 
 // NewApp 创建一个带着默认参数的 app cli 对象
 func NewApp(basename string) *cli.AppCli {
 	opts := options.NewOptions()
-	application := cli.NewAppCli("ciam-api",
+	application := cli.NewAppCli("iam-api",
 		basename,
 		cli.WithOptions(opts),
 		cli.WithDescription(commandDesc),

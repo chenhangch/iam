@@ -4,9 +4,9 @@ import (
 	"encoding/base64"
 	"fmt"
 	jwt "github.com/appleboy/gin-jwt/v2"
-	"github.com/chang144/ciam/internal/pkg/middleware"
-	"github.com/chang144/ciam/internal/pkg/middleware/auth"
-	"github.com/chang144/ciam/pkg/log"
+	"github.com/chang144/iam/internal/pkg/middleware"
+	"github.com/chang144/iam/internal/pkg/middleware/auth"
+	"github.com/chang144/iam/pkg/log"
 	"github.com/gin-gonic/gin"
 	v1 "github.com/hangcodebug/go-api-module/iam/apiserver/v1"
 	"github.com/spf13/viper"
@@ -17,10 +17,10 @@ import (
 
 const (
 	// APIServerAudience defines the value of jwt audience field.
-	APIServerAudience = "ciam.api.ch.com"
+	APIServerAudience = "iam.api.ch.com"
 
 	// APIServerIssuer defines the value of jwt issuer field.
-	APIServerIssuer = "ciam-apiserver"
+	APIServerIssuer = "iam-apiserver"
 )
 
 type loginInfo struct {

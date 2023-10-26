@@ -1,8 +1,8 @@
 package secret
 
 import (
-	srvv1 "github.com/chang144/ciam/internal/apiserver/service/v1"
-	"github.com/chang144/ciam/internal/apiserver/store"
+	srvv1 "github.com/chang144/iam/internal/apiserver/service/v1"
+	"github.com/chang144/iam/internal/apiserver/store"
 )
 
 // SecretController 创建一个密钥handler

@@ -8,28 +8,28 @@ import (
 	"strings"
 	"time"
 
-	"github.com/chang144/ciam/pkg/core"
+	"github.com/chang144/iam/pkg/core"
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	"github.com/marmotedu/component-base/pkg/version"
 	ginprometheus "github.com/zsais/go-gin-prometheus"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/chang144/ciam/internal/pkg/middleware"
-	"github.com/chang144/ciam/pkg/log"
+	"github.com/chang144/iam/internal/pkg/middleware"
+	"github.com/chang144/iam/pkg/log"
 )
 
 // GenericAPIServer 包含iam api服务器的状态。
 // 输入genericapisserver gin.Engine。
 type GenericAPIServer struct {
 	middlewares []string
-	// SecureServingInfo holds configuration of the TLS server.
+	// SecureServingInfo holds configuration of the TLS logicServer.
 	SecureServingInfo *SecureServingInfo
 
-	// InsecureServingInfo holds configuration of the insecure HTTP server.
+	// InsecureServingInfo holds configuration of the insecure HTTP logicServer.
 	InsecureServingInfo *InsecureServingInfo
 
-	// ShutdownTimeout is the timeout used for server shutdown. This specifies the timeout before server
+	// ShutdownTimeout is the timeout used for logicServer shutdown. This specifies the timeout before logicServer
 	// gracefully shutdown returns.
 	ShutdownTimeout time.Duration
 
@@ -114,7 +114,7 @@ func (s *GenericAPIServer) PrepareRun() preparedGenericAPIServer {
 }
 */
 
-// Run spawns the http server. It only returns when the port cannot be listened on initially.
+// Run spawns the http logicServer. It only returns when the port cannot be listened on initially.
 func (s *GenericAPIServer) Run() error {
 	// For scalability, use custom HTTP configuration mode here
 	s.insecureServer = &http.Server{
@@ -137,7 +137,7 @@ func (s *GenericAPIServer) Run() error {
 
 	var eg errgroup.Group
 
-	// Initializing the server in a goroutine so that
+	// Initializing the logicServer in a goroutine so that
 	// it won't block the graceful shutdown handling below
 	eg.Go(func() error {
 		log.Infof("Start to listening the incoming requests on http address: %s", s.InsecureServingInfo.Address)
@@ -172,7 +172,7 @@ func (s *GenericAPIServer) Run() error {
 		return nil
 	})
 
-	// Ping the server to make sure the router is working.
+	// Ping the logicServer to make sure the router is working.
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	if s.healthz {
@@ -190,17 +190,17 @@ func (s *GenericAPIServer) Run() error {
 
 // Close 关闭api服务器。
 func (s *GenericAPIServer) Close() {
-	// The context is used to inform the server it has 10 seconds to finish
+	// The context is used to inform the logicServer it has 10 seconds to finish
 	// the request it is currently handling
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
 	if err := s.secureServer.Shutdown(ctx); err != nil {
-		log.Warnf("Shutdown secure server failed: %s", err.Error())
+		log.Warnf("Shutdown secure logicServer failed: %s", err.Error())
 	}
 
 	if err := s.insecureServer.Shutdown(ctx); err != nil {
-		log.Warnf("Shutdown insecure server failed: %s", err.Error())
+		log.Warnf("Shutdown insecure logicServer failed: %s", err.Error())
 	}
 }
 
@@ -217,7 +217,7 @@ func (s *GenericAPIServer) ping(ctx context.Context) error {
 		if err != nil {
 			return err
 		}
-		// Ping the server by sending a GET request to `/healthz`.
+		// Ping the logicServer by sending a GET request to `/healthz`.
 
 		resp, err := http.DefaultClient.Do(req)
 		if err == nil && resp.StatusCode == http.StatusOK {
@@ -234,7 +234,7 @@ func (s *GenericAPIServer) ping(ctx context.Context) error {
 
 		select {
 		case <-ctx.Done():
-			log.Fatal("can not ping http server within the specified time interval.")
+			log.Fatal("can not ping http logicServer within the specified time interval.")
 		default:
 		}
 	}

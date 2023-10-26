@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/chang144/ciam/internal/pkg/logger"
 	"github.com/chang144/golunzi/errors"
+	"github.com/chang144/iam/internal/pkg/logger"
 	v1 "github.com/hangcodebug/go-api-module/iam/apiserver/v1"
 
-	"github.com/chang144/ciam/internal/apiserver/store"
-	"github.com/chang144/ciam/internal/pkg/options"
-	"github.com/chang144/ciam/pkg/db"
+	"github.com/chang144/iam/internal/apiserver/store"
+	"github.com/chang144/iam/internal/pkg/options"
+	"github.com/chang144/iam/pkg/db"
 	"gorm.io/gorm"
 )
 

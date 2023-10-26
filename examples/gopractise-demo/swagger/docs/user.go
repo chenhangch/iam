@@ -45,8 +45,8 @@ type getUserResponseWrapper struct {
 // This text will appear as description of your error response body.
 // swagger:response errResponse
 type errResponseWrapper struct {
-	// Error code.
-	Code int `json:"code"`
+	// Error backend.
+	Code int `json:"backend"`
 
 	// Error message.
 	Message string `json:"message"`

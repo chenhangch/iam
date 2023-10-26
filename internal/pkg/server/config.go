@@ -9,10 +9,10 @@ import (
 
 const (
 	// RecommendedHomeDir defines the default directory used to place all iam service configurations.
-	RecommendedHomeDir = ".ciam"
+	RecommendedHomeDir = ".iam"
 
 	// RecommendedEnvPrefix defines the ENV prefix used by all iam service.
-	RecommendedEnvPrefix = "CIAM"
+	RecommendedEnvPrefix = "iam"
 )
 
 // Config 是一个用于配置genericapisserver的结构。
@@ -71,7 +71,7 @@ func NewNilConfig() *Config {
 		SecureServing:   nil,
 		InsecureServing: nil,
 		Jwt: &JwtInfo{
-			Realm:      "ciam jwt",
+			Realm:      "iam jwt",
 			Key:        "",
 			Timeout:    1 * time.Hour,
 			MaxRefresh: 1 * time.Hour,

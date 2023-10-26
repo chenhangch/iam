@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/chang144/ciam/examples/gopractise-demo/swagger/api"
+	"github.com/chang144/iam/examples/gopractise-demo/swagger/api"
 
-	_ "github.com/chang144/ciam/examples/gopractise-demo/swagger/docs"
+	_ "github.com/chang144/iam/examples/gopractise-demo/swagger/docs"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
@@ -28,7 +28,7 @@ func Create(c *gin.Context) {
 	if err := c.ShouldBindJSON(&user); err != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"message": err.Error(),
-			"code":    10001,
+			"backend": 10001,
 		})
 		return
 	}
@@ -37,7 +37,7 @@ func Create(c *gin.Context) {
 		if u.Name == user.Name {
 			c.JSON(http.StatusBadRequest, gin.H{
 				"message": fmt.Sprintf("user %s already exists", u.Name),
-				"code":    10001,
+				"backend": 10001,
 			})
 			return
 		}
@@ -58,6 +58,6 @@ func Get(c *gin.Context) {
 
 	c.JSON(http.StatusBadRequest, gin.H{
 		"message": fmt.Sprintf("user %s not exist", username),
-		"code":    10002,
+		"backend": 10002,
 	})
 }

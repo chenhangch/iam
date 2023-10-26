@@ -1,5 +1,5 @@
 // Copyright 2020 Lingfei Kong <colin404@foxmail.com>. All rights reserved.
-// Use of this source code is governed by a MIT style
+// Use of this source backend is governed by a MIT style
 // license that can be found in the LICENSE file.
 
 // nolint: lll
@@ -44,7 +44,7 @@ func TestExplainSQL(t *testing.T) {
 	type role string
 	type password []byte
 	var (
-		tt     = now.MustParse("2020-02-23 11:10:10")
+		tt     = now.MustParse("2020-02-http-23 11:10:10")
 		myrole = role("admin")
 		pwd    = password([]byte("pass"))
 		jsVal  = []byte(`{"Name":"test","Val":"test"}`)
@@ -75,7 +75,7 @@ func TestExplainSQL(t *testing.T) {
 				myrole,
 				pwd,
 			},
-			Result: `create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-23 11:10:10", "2020-02-23 11:10:10", NULL, "w@g.\"com", "admin", "pass")`,
+			Result: `create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-http-23 11:10:10", "2020-02-http-23 11:10:10", NULL, "w@g.\"com", "admin", "pass")`,
 		},
 		{
 			SQL:           "create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -93,7 +93,7 @@ func TestExplainSQL(t *testing.T) {
 				myrole,
 				pwd,
 			},
-			Result: `create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ("jinzhu?", 1, 999.990000, true, "12345", "2020-02-23 11:10:10", "2020-02-23 11:10:10", NULL, "w@g.\"com", "admin", "pass")`,
+			Result: `create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ("jinzhu?", 1, 999.990000, true, "12345", "2020-02-http-23 11:10:10", "2020-02-http-23 11:10:10", NULL, "w@g.\"com", "admin", "pass")`,
 		},
 		{
 			SQL:           "create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11)",
@@ -111,7 +111,7 @@ func TestExplainSQL(t *testing.T) {
 				myrole,
 				pwd,
 			},
-			Result: `create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-23 11:10:10", "2020-02-23 11:10:10", NULL, "w@g.com", "admin", "pass")`,
+			Result: `create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-http-23 11:10:10", "2020-02-http-23 11:10:10", NULL, "w@g.com", "admin", "pass")`,
 		},
 		{
 			SQL:           "create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ($3, $4, $1, $2, $7, $8, $5, $6, $9, $10, $11)",
@@ -129,7 +129,7 @@ func TestExplainSQL(t *testing.T) {
 				myrole,
 				pwd,
 			},
-			Result: `create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-23 11:10:10", "2020-02-23 11:10:10", NULL, "w@g.com", "admin", "pass")`,
+			Result: `create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-http-23 11:10:10", "2020-02-http-23 11:10:10", NULL, "w@g.com", "admin", "pass")`,
 		},
 		{
 			SQL:           "create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values (@p1, @p11, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)",
@@ -147,7 +147,7 @@ func TestExplainSQL(t *testing.T) {
 				pwd,
 				1,
 			},
-			Result: `create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-23 11:10:10", "2020-02-23 11:10:10", NULL, "w@g.com", "admin", "pass")`,
+			Result: `create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-http-23 11:10:10", "2020-02-http-23 11:10:10", NULL, "w@g.com", "admin", "pass")`,
 		},
 		{
 			SQL:           "create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass, json_struct, example_struct) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -168,7 +168,7 @@ func TestExplainSQL(t *testing.T) {
 				es,
 			},
 			Result: fmt.Sprintf(
-				`create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass, json_struct, example_struct) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-23 11:10:10", "2020-02-23 11:10:10", NULL, "w@g.\"com", "admin", "pass", %v, %v)`,
+				`create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass, json_struct, example_struct) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-http-23 11:10:10", "2020-02-http-23 11:10:10", NULL, "w@g.\"com", "admin", "pass", %v, %v)`,
 				format(jsVal, `"`),
 				format(esVal, `"`),
 			),
@@ -192,7 +192,7 @@ func TestExplainSQL(t *testing.T) {
 				&es,
 			},
 			Result: fmt.Sprintf(
-				`create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass, json_struct, example_struct) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-23 11:10:10", "2020-02-23 11:10:10", NULL, "w@g.\"com", "admin", "pass", %v, %v)`,
+				`create table users (name, age, height, actived, bytes, create_at, update_at, deleted_at, email, role, pass, json_struct, example_struct) values ("jinzhu", 1, 999.990000, true, "12345", "2020-02-http-23 11:10:10", "2020-02-http-23 11:10:10", NULL, "w@g.\"com", "admin", "pass", %v, %v)`,
 				format(jsVal, `"`),
 				format(esVal, `"`),
 			),

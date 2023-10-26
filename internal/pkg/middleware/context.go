@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"github.com/chang144/ciam/pkg/log"
+	"github.com/chang144/iam/pkg/log"
 	"github.com/gin-gonic/gin"
 )
 

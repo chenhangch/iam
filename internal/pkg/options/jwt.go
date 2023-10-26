@@ -3,12 +3,12 @@ package options
 import (
 	"fmt"
 	"github.com/asaskevich/govalidator"
-	"github.com/chang144/ciam/internal/pkg/server"
+	"github.com/chang144/iam/internal/pkg/server"
 	"github.com/spf13/pflag"
 	"time"
 )
 
-// JwtOptions contains configuration items related to API server features.
+// JwtOptions contains configuration items related to API logicServer features.
 type JwtOptions struct {
 	Realm      string        `json:"realm"       mapstructure:"realm"`
 	Key        string        `json:"key"         mapstructure:"key"`
@@ -52,7 +52,7 @@ func (s *JwtOptions) Validate() []error {
 	return errs
 }
 
-// AddFlags adds flags related to features for a specific api server to the
+// AddFlags adds flags related to features for a specific api logicServer to the
 // specified FlagSet.
 func (s *JwtOptions) AddFlags(fs *pflag.FlagSet) {
 	if fs == nil {

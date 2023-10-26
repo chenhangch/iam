@@ -20,7 +20,7 @@ Go开发项目中，一个清晰的、好的Commit Message规范有以下作用�
 // 空行
 [optional body]
 // 空行
-[optional footer(s)]
+[optional footer(r)]
 ```
 `type`：分为两种类别: **Development** && **Production**
 + Deployment：这类修改一般是项目管理类的变更，不会影响到用户和生产环境的代码

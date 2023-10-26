@@ -11,7 +11,7 @@ import (
 
 type Product struct {
 	gorm.Model
-	Code  string `gorm:"column:code"`
+	Code  string `gorm:"column:backend"`
 	Price uint   `gorm:"column:price"`
 }
 
@@ -63,7 +63,7 @@ func main() {
 
 	// 3. Find first record that match given conditions
 	product := &Product{}
-	if err := db.Where("code= ?", "D42").First(&product).Error; err != nil {
+	if err := db.Where("backend= ?", "D42").First(&product).Error; err != nil {
 		log.Fatalf("Get product error: %v", err)
 	}
 
@@ -75,7 +75,7 @@ func main() {
 	PrintProducts(db)
 
 	// 5. Delete value match given conditions
-	if err := db.Where("code = ?", "D42").Delete(&Product{}).Error; err != nil {
+	if err := db.Where("backend = ?", "D42").Delete(&Product{}).Error; err != nil {
 		log.Fatalf("Delete product error: %v", err)
 	}
 	PrintProducts(db)
@@ -85,13 +85,13 @@ func main() {
 func PrintProducts(db *gorm.DB) {
 	products := make([]*Product, 0)
 	var count int64
-	d := db.Where("code like ?", "%D%").Offset(0).Limit(2).Order("id desc").Find(&products).Offset(-1).Limit(-1).Count(&count)
+	d := db.Where("backend like ?", "%D%").Offset(0).Limit(2).Order("id desc").Find(&products).Offset(-1).Limit(-1).Count(&count)
 	if d.Error != nil {
 		log.Fatalf("List products error: %v", d.Error)
 	}
 
 	log.Printf("totalcount: %d", count)
 	for _, product := range products {
-		log.Printf("\tcode: %s, price: %d\n", product.Code, product.Price)
+		log.Printf("\tbackend: %s, price: %d\n", product.Code, product.Price)
 	}
 }

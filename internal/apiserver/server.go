@@ -1,14 +1,14 @@
 package apiserver
 
 import (
-	"github.com/chang144/ciam/internal/apiserver/config"
-	"github.com/chang144/ciam/internal/apiserver/store/mysql"
-	"github.com/chang144/ciam/internal/pkg/server"
-	"github.com/chang144/ciam/pkg/log"
 	"github.com/chang144/golunzi/shutdown"
 	"github.com/chang144/golunzi/shutdown/posixsignal"
+	"github.com/chang144/iam/internal/apiserver/config"
+	"github.com/chang144/iam/internal/apiserver/store/mysql"
+	"github.com/chang144/iam/internal/pkg/server"
+	"github.com/chang144/iam/pkg/log"
 
-	genericapiserver "github.com/chang144/ciam/internal/pkg/server"
+	genericapiserver "github.com/chang144/iam/internal/pkg/server"
 )
 
 type apiServer struct {
@@ -80,7 +80,7 @@ func (s preparedAPIServer) Run() error {
 	return s.genericAPIServer.Run()
 }
 
-// buildGenericConfig creates generic config [config -> server]
+// buildGenericConfig creates generic config [config -> logicServer]
 func buildGenericConfig(cfg *config.Config) (genericConfig *genericapiserver.Config, lastErr error) {
 	genericConfig = genericapiserver.NewNilConfig()
 	if lastErr = cfg.GenericServerRunOptions.ApplyTo(genericConfig); lastErr != nil {

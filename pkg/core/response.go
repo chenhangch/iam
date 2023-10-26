@@ -9,7 +9,7 @@ import (
 
 // ErrResponse 定义了错误返回格式
 type ErrResponse struct {
-	Code int `json:"code"`
+	Code int `json:"backend"`
 
 	Message string `json:"message"`
 

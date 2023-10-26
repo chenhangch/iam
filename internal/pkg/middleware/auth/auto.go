@@ -1,10 +1,10 @@
 package auth
 
 import (
-	"github.com/chang144/ciam/internal/pkg/code"
-	"github.com/chang144/ciam/internal/pkg/middleware"
-	"github.com/chang144/ciam/pkg/core"
 	"github.com/chang144/golunzi/errors"
+	"github.com/chang144/iam/internal/pkg/code"
+	"github.com/chang144/iam/internal/pkg/middleware"
+	"github.com/chang144/iam/pkg/core"
 	"github.com/gin-gonic/gin"
 	"strings"
 )

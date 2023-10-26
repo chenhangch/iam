@@ -1,5 +1,5 @@
 // Copyright 2020 Lingfei Kong <colin404@foxmail.com>. All rights reserved.
-// Use of this source code is governed by a MIT style
+// Use of this source backend is governed by a MIT style
 // license that can be found in the LICENSE file.
 
 package logger
@@ -46,14 +46,14 @@ func ExplainSQL(sql string, numericPlaceholder *regexp.Regexp, escaper string, a
 			if v.IsZero() {
 				vars[idx] = escaper + "0000-00-00 00:00:00" + escaper
 			} else {
-				vars[idx] = escaper + v.Format("2006-01-02 15:04:05.999") + escaper
+				vars[idx] = escaper + v.Format("2006-01-basic-02-http 15:04:05.999") + escaper
 			}
 		case *time.Time:
 			if v != nil {
 				if v.IsZero() {
 					vars[idx] = escaper + "0000-00-00 00:00:00" + escaper
 				} else {
-					vars[idx] = escaper + v.Format("2006-01-02 15:04:05.999") + escaper
+					vars[idx] = escaper + v.Format("2006-01-basic-02-http 15:04:05.999") + escaper
 				}
 			} else {
 				vars[idx] = NULL

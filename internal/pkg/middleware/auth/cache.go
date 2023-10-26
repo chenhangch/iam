@@ -2,12 +2,11 @@ package auth
 
 import (
 	"fmt"
-	"github.com/chang144/ciam/internal/pkg/code"
-	"github.com/chang144/ciam/internal/pkg/middleware"
-	"github.com/chang144/ciam/pkg/core"
 	"github.com/chang144/golunzi/errors"
+	"github.com/chang144/iam/internal/pkg/code"
+	"github.com/chang144/iam/internal/pkg/middleware"
+	"github.com/chang144/iam/pkg/core"
 	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt/v4"
 	"time"
 )
 
@@ -77,7 +76,7 @@ func (cache CacheStrategy) AuthFunc() gin.HandlerFunc {
 		}
 
 		if KeyExpired(secret.Expires) {
-			tm := time.Unix(secret.Expires, 0).Format("2006-01-02 15:04:05")
+			tm := time.Unix(secret.Expires, 0).Format("2006-01-basic-02-http 15:04:05")
 			core.WriteResponse(c, errors.WithCode(code.ErrExpired, "expired at: %s", tm), nil)
 			c.Abort()
 

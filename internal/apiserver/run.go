@@ -1,6 +1,6 @@
 package apiserver
 
-import "github.com/chang144/ciam/internal/apiserver/config"
+import "github.com/chang144/iam/internal/apiserver/config"
 
 func Run(cfg *config.Config) error {
 	server, err := createAPIServer(cfg)

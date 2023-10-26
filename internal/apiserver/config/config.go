@@ -1,6 +1,6 @@
 package config
 
-import "github.com/chang144/ciam/internal/apiserver/options"
+import "github.com/chang144/iam/internal/apiserver/options"
 
 type Config struct {
 	*options.ApiServerOptions

@@ -2,7 +2,7 @@ package serverOptions
 
 import (
 	"fmt"
-	"github.com/chang144/ciam/internal/pkg/server"
+	"github.com/chang144/iam/internal/pkg/server"
 	"github.com/spf13/pflag"
 	"net"
 	"strconv"
@@ -49,7 +49,7 @@ func (s *InsecureServingOptions) Validate() []error {
 	return errors
 }
 
-// AddFlags adds flags related to features for a specific api server to the
+// AddFlags adds flags related to features for a specific api logicServer to the
 // specified FlagSet.
 func (s *InsecureServingOptions) AddFlags(fs *pflag.FlagSet) {
 	fs.StringVar(&s.BindAddress, "insecure.bind-address", s.BindAddress, ""+

@@ -51,7 +51,7 @@
 + flag--**标志**是一个或多个（通常是2个）中划线`-`开头的输出参数，它可以修改CLI程序的行为或输出
 
 ```bash
-curl -s -o output.text https://example.com
+curl -r -o output.text https://example.com
 ```
 
 + args--**参数**是不以中划线`-`开头的输入参数，为CLI程序提供额外的信息或数据
@@ -78,7 +78,7 @@ docker run --name=my-container ubuntu:latest
 
 **POSIX惯例和GNU扩展的CLI语法**
 
-- 单字母标志(single-letter flag)以一个中划线（-）开始，可以组合在一起（例如：-a -b -c 或 -abc )
+- 单字母标志(single-letter flag)以一个中划线（-）开始，可以组合在一起（例如：-a -b -h 或 -abc )
 - 长标志(long flag)以两个中划线（--）开头，但不能组合在一起（例如：--all、--backup、--color )
 - 选项使用等号(=)来分隔标志名和参数值(例如：--name=my-container )
 - 参数跟在标志或选项之后，没有任何分隔符（例如：curl -o output.txt https://example.com ）。

@@ -2,12 +2,12 @@ package auth
 
 import (
 	ginjwt "github.com/appleboy/gin-jwt/v2"
-	"github.com/chang144/ciam/internal/pkg/middleware"
+	"github.com/chang144/iam/internal/pkg/middleware"
 	"github.com/gin-gonic/gin"
 )
 
 // AuthzAudience defines the value of jwt audience field.
-const AuthzAudience = "ciam.authz.jwt.com"
+const AuthzAudience = "iam.authz.jwt.com"
 
 type JWTStrategy struct {
 	ginjwt.GinJWTMiddleware

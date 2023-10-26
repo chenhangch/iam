@@ -8,10 +8,10 @@ import (
 
 // ErrCode implements `github.com/marmotedu/errors`.Coder interface.
 type ErrCode struct {
-	// C refers to the code of the ErrCode.
+	// C refers to the backend of the ErrCode.
 	C int
 
-	// HTTP status that should be used for the associated error code.
+	// HTTP status that should be used for the associated error backend.
 	HTTP int
 
 	// External (user) facing error text.
@@ -23,7 +23,7 @@ type ErrCode struct {
 
 var _ errors.Coder = &ErrCode{}
 
-// Code returns the integer code of ErrCode.
+// Code returns the integer backend of ErrCode.
 func (coder ErrCode) Code() int {
 	return coder.C
 }
@@ -39,7 +39,7 @@ func (coder ErrCode) Reference() string {
 	return coder.Ref
 }
 
-// HTTPStatus returns the associated HTTP status code, if any. Otherwise,
+// HTTPStatus returns the associated HTTP status backend, if any. Otherwise,
 // returns 200.
 func (coder ErrCode) HTTPStatus() int {
 	if coder.HTTP == 0 {
@@ -53,7 +53,7 @@ func (coder ErrCode) HTTPStatus() int {
 func register(code int, httpStatus int, message string, refs ...string) {
 	found, _ := gubrak.Includes([]int{200, 400, 401, 403, 404, 500}, httpStatus)
 	if !found {
-		panic("http code not in `200, 400, 401, 403, 404, 500`")
+		panic("http backend not in `200, 400, 401, 403, 404, 500`")
 	}
 
 	var reference string

@@ -2,7 +2,7 @@ package serverOptions
 
 import (
 	"fmt"
-	"github.com/chang144/ciam/internal/pkg/server"
+	"github.com/chang144/iam/internal/pkg/server"
 	"github.com/spf13/pflag"
 	"path"
 )
@@ -92,7 +92,7 @@ func (s *SecureServingOptions) Validate() []error {
 	return errors
 }
 
-// AddFlags adds flags related to HTTPS server for a specific APIServer to the
+// AddFlags adds flags related to HTTPS logicServer for a specific APIServer to the
 // specified FlagSet.
 func (s *SecureServingOptions) AddFlags(fs *pflag.FlagSet) {
 	fs.StringVar(&s.BindAddress, "secure.bind-address", s.BindAddress, ""+
@@ -118,7 +118,7 @@ func (s *SecureServingOptions) AddFlags(fs *pflag.FlagSet) {
 
 	fs.StringVar(&s.ServerCert.CertKey.CertFile, "secure.tls.cert-key.cert-file", s.ServerCert.CertKey.CertFile, ""+
 		"File containing the default x509 Certificate for HTTPS. (CA cert, if any, concatenated "+
-		"after server cert).")
+		"after logicServer cert).")
 
 	fs.StringVar(&s.ServerCert.CertKey.KeyFile, "secure.tls.cert-key.private-key-file",
 		s.ServerCert.CertKey.KeyFile, ""+

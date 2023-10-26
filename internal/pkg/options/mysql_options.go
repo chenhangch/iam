@@ -1,7 +1,7 @@
 package options
 
 import (
-	"github.com/chang144/ciam/pkg/db"
+	"github.com/chang144/iam/pkg/db"
 	"github.com/spf13/pflag"
 	"gorm.io/gorm"
 	"time"

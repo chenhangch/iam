@@ -10,6 +10,76 @@ ciam 一个Web服务，用于给第三方用于提供资源访问控制服务。
 <!-- 核心功能 -->
 
 ## 软件架构
+```protobuf
+├─api
+│  ├─openapi
+│  └─swagger
+├─build
+│  ├─ci
+│  ├─docker
+│  │  └─iam-api
+│  └─package
+├─cmd
+│  └─iam-api
+├─configs
+├─docs
+│  ├─docker
+│  ├─guide
+│  │  └─zh-CN
+│  │      └─api
+│  └─images
+├─examples
+│  ├─errors_ex
+│  └─gopractise-demo
+│      ├─gorm
+│      └─swagger
+│          ├─api
+│          └─docs
+├─internal
+│  ├─apiserver
+│  │  ├─api
+│  │  ├─config
+│  │  ├─controller
+│  │  │  └─v1
+│  │  │      └─secret
+│  │  ├─options
+│  │  ├─service
+│  │  │  └─v1
+│  │  ├─store
+│  │  │  ├─fake
+│  │  │  └─mysql
+│  │  └─testing
+│  └─pkg
+│      ├─code
+│      ├─logger
+│      ├─middleware
+│      │  └─auth
+│      ├─options
+│      │  └─serverOptions
+│      ├─server
+│      ├─util
+│      └─validation
+├─pkg
+│  ├─core
+│  ├─db
+│  └─log
+│      ├─cronlog
+│      ├─distribution
+│      ├─example
+│      │  ├─context
+│      │  ├─simple
+│      │  └─vlevel
+│      ├─klog
+│      └─logrus
+├─scripts
+│  ├─install
+│  ├─lib
+│  └─make-rules
+├─test
+├─third_party
+└─tools
+
+```
 
 <!-- 项目的构架 -->
 
@@ -29,6 +99,10 @@ ciam 一个Web服务，用于给第三方用于提供资源访问控制服务。
 ## 使用指南
 
 <!-- 如何使用该项目 -->
+启动api-server服务：
+```bash
+go run /cmd/iam/iam-api.go
+```
 
 ## 如何贡献
 
