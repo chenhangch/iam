@@ -2,8 +2,9 @@ package apiserver
 
 import (
 	"fmt"
-	"github.com/chang144/iam/internal/apiserver/store/mysql"
-	"github.com/chang144/iam/internal/pkg/middleware/auth"
+
+	"github.com/chenhangch/iam/internal/apiserver/store/mysql"
+	"github.com/chenhangch/iam/internal/pkg/middleware/auth"
 	"github.com/gin-gonic/gin"
 )
 

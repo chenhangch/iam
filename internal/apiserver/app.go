@@ -1,14 +1,14 @@
 package apiserver
 
 import (
-	"github.com/chang144/golunzi/cli"
-	"github.com/chang144/iam/internal/apiserver/config"
-	"github.com/chang144/iam/internal/apiserver/options"
-	"github.com/chang144/iam/pkg/log"
+	"github.com/chenhangch/golunzi/cli"
+	"github.com/chenhangch/iam/internal/apiserver/config"
+	"github.com/chenhangch/iam/internal/apiserver/options"
+	"github.com/chenhangch/iam/pkg/log"
 )
 
 const commandDesc = `The iam API logicServer
-Find more information at https://github.com/chang144/iam
+Find more information at https://github.com/chenhangch/iam
 `
 
 // NewApp 创建一个带着默认参数的 app cli 对象

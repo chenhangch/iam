@@ -1,14 +1,14 @@
 package apiserver
 
 import (
-	"github.com/chang144/golunzi/shutdown"
-	"github.com/chang144/golunzi/shutdown/posixsignal"
-	"github.com/chang144/iam/internal/apiserver/config"
-	"github.com/chang144/iam/internal/apiserver/store/mysql"
-	"github.com/chang144/iam/internal/pkg/server"
-	"github.com/chang144/iam/pkg/log"
+	"github.com/chenhangch/golunzi/shutdown"
+	"github.com/chenhangch/golunzi/shutdown/posixsignal"
+	"github.com/chenhangch/iam/internal/apiserver/config"
+	"github.com/chenhangch/iam/internal/apiserver/store/mysql"
+	"github.com/chenhangch/iam/internal/pkg/server"
+	"github.com/chenhangch/iam/pkg/log"
 
-	genericapiserver "github.com/chang144/iam/internal/pkg/server"
+	genericapiserver "github.com/chenhangch/iam/internal/pkg/server"
 )
 
 type apiServer struct {

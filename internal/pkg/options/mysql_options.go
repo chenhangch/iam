@@ -1,10 +1,11 @@
 package options
 
 import (
-	"github.com/chang144/iam/pkg/db"
+	"time"
+
+	"github.com/chenhangch/iam/pkg/db"
 	"github.com/spf13/pflag"
 	"gorm.io/gorm"
-	"time"
 )
 
 type MySQLOptions struct {

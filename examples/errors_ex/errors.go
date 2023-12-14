@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/chang144/golunzi/errors"
+
+	"github.com/chenhangch/golunzi/errors"
 	code "github.com/marmotedu/sample-code"
 )
 

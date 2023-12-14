@@ -1,12 +1,13 @@
 package server
 
 import (
-	"github.com/chang144/iam/pkg/log"
+	"path/filepath"
+	"strings"
+
+	"github.com/chenhangch/iam/pkg/log"
 	"github.com/gin-gonic/gin"
 	"github.com/marmotedu/component-base/pkg/util/homedir"
 	"github.com/spf13/viper"
-	"path/filepath"
-	"strings"
 )
 
 // CompletedConfig 是GenericAPIServer的完整配置。

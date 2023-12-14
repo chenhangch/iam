@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/chang144/iam/examples/gopractise-demo/swagger/api"
 
-	_ "github.com/chang144/iam/examples/gopractise-demo/swagger/docs"
-	"github.com/gin-gonic/gin"
+	"github.com/chenhangch/iam/examples/gopractise-demo/swagger/api"
+
 	"log"
 	"net/http"
+
+	_ "github.com/chenhangch/iam/examples/gopractise-demo/swagger/docs"
+	"github.com/gin-gonic/gin"
 )
 
 var users []*api.User

@@ -1,10 +1,12 @@
 package core
 
 import (
-	"github.com/chang144/golunzi/errors"
-	"github.com/gin-gonic/gin"
-	"github.com/prometheus/common/log"
 	"net/http"
+
+	"github.com/chenhangch/golunzi/errors"
+	"github.com/gin-gonic/gin"
+	
+	log "golang.org/x/exp/slog"
 )
 
 // ErrResponse 定义了错误返回格式
@@ -18,7 +20,7 @@ type ErrResponse struct {
 
 func WriteResponse(c *gin.Context, err error, date interface{}) {
 	if err != nil {
-		log.Errorf("%#+v", err)
+		log.Error("%#+v", err)
 		coder := errors.ParseCoder(err)
 		c.JSON(coder.HTTPStatus(), ErrResponse{
 			Code:      coder.Code(),

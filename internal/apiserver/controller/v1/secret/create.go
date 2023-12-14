@@ -1,10 +1,10 @@
 package secret
 
 import (
-	"github.com/chang144/golunzi/errors"
-	"github.com/chang144/iam/internal/pkg/code"
-	"github.com/chang144/iam/pkg/core"
-	"github.com/chang144/iam/pkg/log"
+	"github.com/chenhangch/golunzi/errors"
+	"github.com/chenhangch/iam/internal/pkg/code"
+	"github.com/chenhangch/iam/pkg/core"
+	"github.com/chenhangch/iam/pkg/log"
 	"github.com/gin-gonic/gin"
 	v1 "github.com/marmotedu/api/apiserver/v1"
 )

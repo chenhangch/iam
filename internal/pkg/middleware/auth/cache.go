@@ -2,12 +2,14 @@ package auth
 
 import (
 	"fmt"
-	"github.com/chang144/golunzi/errors"
-	"github.com/chang144/iam/internal/pkg/code"
-	"github.com/chang144/iam/internal/pkg/middleware"
-	"github.com/chang144/iam/pkg/core"
-	"github.com/gin-gonic/gin"
 	"time"
+
+	"github.com/chenhangch/golunzi/errors"
+	"github.com/chenhangch/iam/internal/pkg/code"
+	"github.com/chenhangch/iam/internal/pkg/middleware"
+	"github.com/chenhangch/iam/pkg/core"
+	"github.com/dgrijalva/jwt-go"
+	"github.com/gin-gonic/gin"
 )
 
 var (

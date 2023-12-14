@@ -2,10 +2,11 @@ package options
 
 import (
 	"fmt"
-	"github.com/asaskevich/govalidator"
-	"github.com/chang144/iam/internal/pkg/server"
-	"github.com/spf13/pflag"
 	"time"
+
+	"github.com/asaskevich/govalidator"
+	"github.com/chenhangch/iam/internal/pkg/server"
+	"github.com/spf13/pflag"
 )
 
 // JwtOptions contains configuration items related to API logicServer features.

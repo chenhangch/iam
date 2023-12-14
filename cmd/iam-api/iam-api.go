@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/chang144/golunzi/cli"
-	"github.com/chang144/iam/internal/apiserver"
+	"github.com/chenhangch/golunzi/cli"
+	"github.com/chenhangch/iam/internal/apiserver"
 )
 
 func main() {

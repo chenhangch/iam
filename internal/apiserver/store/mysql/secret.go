@@ -2,8 +2,9 @@ package mysql
 
 import (
 	"context"
-	"github.com/chang144/golunzi/errors"
-	"github.com/chang144/iam/internal/pkg/code"
+
+	"github.com/chenhangch/golunzi/errors"
+	"github.com/chenhangch/iam/internal/pkg/code"
 	v1 "github.com/marmotedu/api/apiserver/v1"
 	metav1 "github.com/marmotedu/component-base/pkg/meta/v1"
 	"gorm.io/gorm"

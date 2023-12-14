@@ -1,6 +1,6 @@
 package docs
 
-import "github.com/chang144/ciam/examples/gopractise-demo/swagger/api"
+import "github.com/chenhangch/iam/examples/gopractise-demo/swagger/api"
 
 // swagger:route POST /users user createUserRequest
 // Create a user in memory.

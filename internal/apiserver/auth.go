@@ -3,16 +3,17 @@ package apiserver
 import (
 	"encoding/base64"
 	"fmt"
-	jwt "github.com/appleboy/gin-jwt/v2"
-	"github.com/chang144/iam/internal/pkg/middleware"
-	"github.com/chang144/iam/internal/pkg/middleware/auth"
-	"github.com/chang144/iam/pkg/log"
-	"github.com/gin-gonic/gin"
-	v1 "github.com/hangcodebug/go-api-module/iam/apiserver/v1"
-	"github.com/spf13/viper"
 	"net/http"
 	"strings"
 	"time"
+
+	jwt "github.com/appleboy/gin-jwt/v2"
+	v1 "github.com/chenhangch/go-api-module/iam/apiserver/v1"
+	"github.com/chenhangch/iam/internal/pkg/middleware"
+	"github.com/chenhangch/iam/internal/pkg/middleware/auth"
+	"github.com/chenhangch/iam/pkg/log"
+	"github.com/gin-gonic/gin"
+	"github.com/spf13/viper"
 )
 
 const (

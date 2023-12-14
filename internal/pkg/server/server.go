@@ -8,15 +8,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/chang144/iam/pkg/core"
+	"github.com/chenhangch/iam/pkg/core"
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	"github.com/marmotedu/component-base/pkg/version"
 	ginprometheus "github.com/zsais/go-gin-prometheus"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/chang144/iam/internal/pkg/middleware"
-	"github.com/chang144/iam/pkg/log"
+	"github.com/chenhangch/iam/internal/pkg/middleware"
+	"github.com/chenhangch/iam/pkg/log"
 )
 
 // GenericAPIServer 包含iam api服务器的状态。

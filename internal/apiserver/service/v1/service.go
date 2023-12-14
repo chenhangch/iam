@@ -1,6 +1,6 @@
 package v1
 
-import "github.com/chang144/iam/internal/apiserver/store"
+import "github.com/chenhangch/iam/internal/apiserver/store"
 
 type Service interface {
 	Secrets() SecretSrv

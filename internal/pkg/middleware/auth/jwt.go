@@ -2,7 +2,7 @@ package auth
 
 import (
 	ginjwt "github.com/appleboy/gin-jwt/v2"
-	"github.com/chang144/iam/internal/pkg/middleware"
+	"github.com/chenhangch/iam/internal/pkg/middleware"
 	"github.com/gin-gonic/gin"
 )
 
